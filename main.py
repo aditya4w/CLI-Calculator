@@ -1,9 +1,27 @@
+import os
+
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def border():
+    print("╔══════════════════════╗")
+
+def mid():
+    print("╠══════════════════════╣")
+
+def end():
+    print("╚══════════════════════╝")
+
+def line():
+    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+
+
 def SecMenu():
     while True:
-        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+        border()
         print(" 1. Back to menu.")
         print(" 2. Exit.")
-        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+        end()
 
         try:
             choice = int(input("What would you like to do? \n :"))
@@ -32,76 +50,82 @@ def Div(num1, num2):
 
 def main():
     while True:
-        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
-        print("︱ CLI Calculator ︱")
-        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+        clear()
+        border()
+        print("║    CLI Calculator    ║")
+        mid()
         print(" 1. Addition")
         print(" 2. Substraction")
         print(" 3. Multiplication")
         print(" 4. Division")
         print(" 5. Exit")
-        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+        end()
 
         try:
             choice = int(input("What would you like to do? \n :"))
 
             match choice:
                 case 1:
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     num1 = int(input("Enter the first number: "))
                     num2 = int(input("Enter the second number: "))
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     Add(num1, num2)
                     result = SecMenu()
                     if result == 2:
                         break
 
                 case 2:
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     num1 = int(input("Enter the first number: "))
                     num2 = int(input("Enter the second number: "))
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     Sub(num1, num2)
                     result = SecMenu()
                     if result == 2:
                         break
 
                 case 3:
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     num1 = int(input("Enter the first number: "))
                     num2 = int(input("Enter the second number: "))
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     Mult(num1, num2)
                     result = SecMenu()
                     if result == 2:
                         break
 
                 case 4:
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     num1 = int(input("Enter the first number: "))
                     num2 = int(input("Enter the second number: "))
-                    print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                    line()
                     if num2 == 0:
-                        print("Enter a Valid number!")
-                        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                        print("Can't divide by zero, Enter a Valid number!")
+                        line()
                         num2 = int(input("Enter the second number: "))
-                        print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                        line()
                         Div(num1, num2)
                         result = SecMenu()
                         if result == 2:
                             break
                     else:
-                         print("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬")
+                         line()
                          Div(num1, num2)
                          result = SecMenu()
                          if result == 2:
                              break
 
                 case 5:
+                    border()
+                    print("║  Thanks for using    ║")
+                    print("║   CLI Calculator.    ║")
+                    end()
+
                     break
 
         except ValueError:
-               print("Enter valid option.")
+               print("Enter a valid option.")
 
 if __name__ == "__main__":
     main()
