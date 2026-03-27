@@ -53,7 +53,7 @@ def AdvMath():
         print(" 3. Cube")
         print(" 4. Root")
         print(" 5. Log")
-        print(" 6. Back/Exit")
+        print(" 6. Back")
         end()
 
         try:
@@ -67,29 +67,68 @@ def AdvMath():
                     while num < 0:
                         print("Factorial of negative number doesn't exit.")
                         line()
-                        num = int(input("Enter a number :"))
+                        num = int(input("Enter a valid number: "))
     
                     line()
                     Factorial(num)
+
                     result = SecMenu()
                     if result == 2:
                         return 2
 
 
                 case 2:
-                    pass
+                    line()
+                    num = int(input("Enter a number: "))
+                    line()
+                    Square(num)
+
+                    result = SecMenu()
+                    if result == 2:
+                        return 2
 
                 case 3:
-                    pass
+                    line()
+                    num = int(input("Enter a number: "))
+                    line()
+                    Cube(num)
+
+                    result = SecMenu()
+                    if result == 2:
+                        return 2
                 
                 case 4:
-                    pass
+                    line()
+                    num = int(input("Enter a number: "))
+                    line()
+                    while num <0:
+                        num = int(input("Enter a Non-negative number: "))
+
+                    line()
+                    Root(num)
+
+                    result = SecMenu()
+                    if result == 2:
+                        return 2
 
                 case 5:
-                    pass
+                    line()
+                    num = int(input("Enter a number: "))
+                    line()
+                    while num <= 0:
+                        print("Log of 0 and negative numbers are not supported.")
+                        line()
+                        num = int(input("Enter a valid number: "))
 
+                    line()
+                    Log(num)
+
+                    result = SecMenu()
+                    if result == 2:
+                        return 2
+              
                 case 6:
-                    pass
+                    return 1
 
         except ValueError:
             print("Enter a valid option.")
@@ -143,7 +182,8 @@ def main():
         print(" 2. Substraction")
         print(" 3. Multiplication")
         print(" 4. Division")
-        print(" 5. Exit")
+        print(" 5. Advance Maths")
+        print(" 6. Exit")
         end()
 
         try:
@@ -185,23 +225,22 @@ def main():
                     num1 = int(input("Enter the first number: "))
                     num2 = int(input("Enter the second number: "))
                     line()
-                    if num2 == 0:
+                    while num2 == 0:
                         print("Can't divide by zero, Enter a Valid number!")
                         line()
                         num2 = int(input("Enter the second number: "))
-                        line()
-                        Div(num1, num2)
-                        result = SecMenu()
-                        if result == 2:
-                            break
-                    else:
-                         line()
-                         Div(num1, num2)
-                         result = SecMenu()
-                         if result == 2:
-                             break
+                        
+                    line()
+                    Div(num1, num2)
+                    result = SecMenu()
+                    if result == 2:
+                        break
 
                 case 5:
+                    if AdvMath() == 2:
+                        break
+
+                case 6:
                     border()
                     print("║  Thanks for using    ║")
                     print("║   CLI Calculator.    ║")
